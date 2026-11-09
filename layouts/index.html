@@ -1,0 +1,159 @@
+{{ define "main" }}
+<main id="main" class="layout" tabindex="-1">
+  {{ partial "profile.html" . }}
+
+  <div class="content">
+    <section id="about" class="section" aria-labelledby="about-heading">
+      <h2 id="about-heading">Welcome</h2>
+      <div class="prose">
+        {{ .Content }}
+      </div>
+    </section>
+
+    {{- /* Research: job market paper first, then working papers, then publications. */}}
+    {{- $papers := slice }}
+    {{- with hugo.Data.papers }}{{ $papers = . }}{{ end }}
+    {{- if or $papers site.Params.interests }}
+    <section id="research" class="section" aria-labelledby="research-heading">
+      <h2 id="research-heading">Research</h2>
+      {{- with site.Params.interests }}
+      <p class="interests"><span class="interests__label">Interests:</span> {{ delimit . ", " }}</p>
+      {{- end }}
+      {{- range where $papers "job_market_paper" true }}
+      {{ partial "jmp.html" . }}
+      {{- end }}
+      {{- $others := where $papers "job_market_paper" "!=" true }}
+      {{- $published := where $others "status" "in" (slice "published" "accepted") }}
+      {{- $working := where $others "status" "not in" (slice "published" "accepted") }}
+      {{- with $working }}
+      <h3>Working Papers</h3>
+      <ul class="entries">
+        {{- range . }}
+        {{ partial "paper.html" . }}
+        {{- end }}
+      </ul>
+      {{- end }}
+      {{- with $published }}
+      <h3>Publications</h3>
+      <ul class="entries">
+        {{- range . }}
+        {{ partial "paper.html" . }}
+        {{- end }}
+      </ul>
+      {{- end }}
+    </section>
+    {{- end }}
+
+    {{- /* Software or other projects. Appears only if data/projects.yaml exists. */}}
+    {{- with hugo.Data.projects }}
+    {{- $heading := site.Params.projectsHeading | default "Projects" }}
+    <section id="{{ anchorize $heading }}" class="section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">{{ $heading }}</h2>
+      <ul class="entries">
+        {{- range . }}
+        <li class="entry">
+          <p class="entry__title">
+            {{- if .url }}<a href="{{ .url | relURL }}" target="_blank" rel="noopener">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
+            {{- with .language }}&nbsp;<span class="badge">{{ . }}</span>{{ end -}}
+          </p>
+          {{- with .description }}
+          <p class="entry__meta">{{ . }}</p>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+
+    {{- with hugo.Data.teaching }}
+    <section id="teaching" class="section" aria-labelledby="teaching-heading">
+      <h2 id="teaching-heading">Teaching</h2>
+      <ul class="entries">
+        {{- range . }}
+        <li class="entry">
+          <div class="entry__head">
+            <p class="entry__title">{{ .course }}</p>
+            {{- with .term }}<p class="entry__date">{{ . }}</p>{{ end }}
+          </div>
+          {{- $meta := slice }}
+          {{- with .role }}{{ $meta = $meta | append . }}{{ end }}
+          {{- with .institution }}{{ $meta = $meta | append . }}{{ end }}
+          {{- with .instructor }}{{ $meta = $meta | append (printf "with %s" .) }}{{ end }}
+          {{- with $meta }}
+          <p class="entry__meta">{{ delimit . ", " }}</p>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+
+    {{- with hugo.Data.awards }}
+    <section id="awards" class="section" aria-labelledby="awards-heading">
+      <h2 id="awards-heading">Awards and Fellowships</h2>
+      <ul class="entries entries--compact">
+        {{- range . }}
+        <li class="entry">
+          <div class="entry__head">
+            <p class="entry__title">{{ .name }}</p>
+            {{- with .year }}<p class="entry__date">{{ . }}</p>{{ end }}
+          </div>
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+
+    {{- with hugo.Data.news }}
+    <section id="news" class="section" aria-labelledby="news-heading">
+      <h2 id="news-heading">News</h2>
+      <ul class="entries entries--compact">
+        {{- range first 8 . }}
+        <li class="entry news-item">
+          <p><span class="news-item__date">{{ .date }}</span> {{ .text | markdownify }}</p>
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+
+    {{- with where site.RegularPages "Section" "blog" }}
+    <section id="blog" class="section" aria-labelledby="blog-heading">
+      <h2 id="blog-heading">Blog</h2>
+      <ul class="entries entries--compact">
+        {{- range first 5 .ByDate.Reverse }}
+        <li class="entry">
+          <div class="entry__head">
+            <p class="entry__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+            <p class="entry__date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time></p>
+          </div>
+        </li>
+        {{- end }}
+      </ul>
+      {{- if gt (len .) 5 }}
+      <p class="more-link"><a href="{{ "blog/" | relURL }}">All posts</a></p>
+      {{- end }}
+    </section>
+    {{- end }}
+
+    <section id="contact" class="section" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <div class="prose">
+        <p>You can reach me at <a href="mailto:{{ site.Params.email }}">{{ site.Params.email }}</a>.</p>
+      </div>
+      <address class="address">
+        {{- with site.Params.department }}{{ . }}<br>{{ end }}
+        {{- with site.Params.institution }}{{ . }}<br>{{ end }}
+        {{- with site.Params.location }}{{ . }}{{ end -}}
+      </address>
+      {{- with site.Params.social }}
+      <ul class="link-list link-list--inline">
+        {{- range . }}
+        <li>{{ partial "icon.html" .icon }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></li>
+        {{- end }}
+      </ul>
+      {{- end }}
+    </section>
+  </div>
+</main>
+{{ end }}

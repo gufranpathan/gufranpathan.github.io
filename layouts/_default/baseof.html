@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{ partial "head.html" . }}
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+{{ partial "nav.html" . }}
+{{ block "main" . }}{{ end }}
+{{ partial "footer.html" . }}
+<script>
+  // Opens and closes the menu on small screens. Without JavaScript the links stay visible.
+  (function () {
+    var button = document.querySelector('.nav-toggle');
+    var menu = document.getElementById('site-menu');
+    if (!button || !menu) return;
+    function setOpen(open) {
+      button.setAttribute('aria-expanded', String(open));
+      menu.classList.toggle('is-open', open);
+    }
+    button.addEventListener('click', function () {
+      setOpen(button.getAttribute('aria-expanded') !== 'true');
+    });
+    menu.addEventListener('click', function (event) {
+      if (event.target.closest('a')) setOpen(false);
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') setOpen(false);
+    });
+  })();
+</script>
+</body>
+</html>

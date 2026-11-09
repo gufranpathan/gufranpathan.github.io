@@ -1,0 +1,39 @@
+# Papers shown in the Research section of the homepage, in this order.
+#
+# authors: everyone, in order, including you. The site leaves your own name
+#          out and shows the rest as "with A, B and C".
+# status:  one of: published, accepted, revise and resubmit, under review,
+#          working paper, work in progress
+# pdf:     path of a PDF you uploaded to static/files/, e.g. "files/my-paper.pdf"
+# link:    a web address for the paper (DOI, SSRN, journal page), used when there is no pdf
+# Leave a field as "" when it does not apply. See UPDATING.md for details.
+
+- title: "Increasing Polarization of Hindu-Muslim Identity in India"
+  authors: ["Feyaad Allie", "Viktor Enssle", "Tanushree Goyal", "Saad Gulzar", "Gufran Pathan"]
+  year: ""
+  status: "under review"
+  venue: ""
+  pdf: ""
+  link: ""
+  abstract: ""
+  job_market_paper: false
+
+- title: "Beyond Publication Bias: Characterizing and Understanding Missing Results in Economics"
+  authors: ["Fernando Hoces de la Guardia", "Edward Miguel", "Gufran Pathan", "Akash Shaji", "Viviane Silva da Rocha", "Erik Sørensen", "Bertil Tungodden"]
+  year: ""
+  status: "working paper"
+  venue: ""
+  pdf: ""
+  link: ""
+  abstract: ""
+  job_market_paper: false
+
+- title: "Powering Field Experiments from Space"
+  authors: ["Iván Higuera-Mendieta", "Gufran Pathan", "Marshall Burke", "Edward Miguel"]
+  year: ""
+  status: "work in progress"
+  venue: ""
+  pdf: ""
+  link: ""
+  abstract: ""
+  job_market_paper: false

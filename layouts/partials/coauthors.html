@@ -1,0 +1,21 @@
+{{- /* Returns "with A, B and C" as HTML for a list of authors, leaving out the site owner.
+       A name links to its address in data/coauthors.yaml, if it has one. */ -}}
+{{- $owner := site.Params.author -}}
+{{- $links := slice -}}
+{{- with hugo.Data.coauthors -}}{{- $links = . -}}{{- end -}}
+{{- $names := slice -}}
+{{- range . -}}
+  {{- if ne . $owner -}}
+    {{- $name := . -}}
+    {{- $html := $name | htmlEscape -}}
+    {{- with where $links "name" $name -}}
+      {{- with (index . 0).url -}}
+        {{- $html = printf `<a href="%s" target="_blank" rel="noopener">%s</a>` (. | htmlEscape) $html -}}
+      {{- end -}}
+    {{- end -}}
+    {{- $names = $names | append $html -}}
+  {{- end -}}
+{{- end -}}
+{{- $out := "" -}}
+{{- with $names -}}{{- $out = printf "with %s" (delimit . ", " " and ") -}}{{- end -}}
+{{- return $out -}}

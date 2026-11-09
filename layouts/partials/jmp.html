@@ -1,0 +1,19 @@
+{{- /* The job market paper, shown first in the Research section with its abstract. */ -}}
+{{- $url := "" }}
+{{- with .pdf }}{{ $url = . | relURL }}{{ else }}{{ with .link }}{{ $url = . }}{{ end }}{{ end }}
+<article class="jmp">
+  <p class="jmp__label">Job market paper</p>
+  <h3 class="jmp__title">
+    {{- if $url }}<a href="{{ $url }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}{{ .title }}{{ end }}
+    {{- with .status }}{{ if ne (lower .) "published" }}&nbsp;<span class="badge">{{ partial "status-label.html" . }}</span>{{ end }}{{ end -}}
+  </h3>
+  {{- with partial "coauthors.html" .authors }}
+  <p class="entry__meta">{{ . | safeHTML }}</p>
+  {{- end }}
+  {{- with .abstract }}
+  <p class="jmp__abstract">{{ . }}</p>
+  {{- end }}
+  {{- with $url }}
+  <p class="jmp__actions"><a class="button" href="{{ . }}" target="_blank" rel="noopener">{{ partial "icon.html" "cv" }}<span>Paper (PDF)</span></a></p>
+  {{- end }}
+</article>

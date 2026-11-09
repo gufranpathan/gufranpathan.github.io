@@ -1,0 +1,6 @@
+# Gufran Pathan's academic website. All crawlers are welcome.
+# A short plain-text summary for AI assistants is at https://gufranpathan.github.io/llms.txt
+User-agent: *
+Allow: /
+
+Sitemap: https://gufranpathan.github.io/sitemap.xml

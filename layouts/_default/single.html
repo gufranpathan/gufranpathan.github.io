@@ -1,0 +1,12 @@
+{{ define "main" }}
+<main id="main" class="page" tabindex="-1">
+  <article class="prose">
+    <h1 class="page__title">{{ .Title }}</h1>
+    {{- if not .Date.IsZero }}
+    <p class="entry__meta"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time></p>
+    {{- end }}
+    {{ .Content }}
+  </article>
+  <p class="back-link"><a href="{{ "/" | relURL }}">&larr; Back to the homepage</a></p>
+</main>
+{{ end }}
