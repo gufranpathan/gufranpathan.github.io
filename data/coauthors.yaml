@@ -1,0 +1,39 @@
+# Web pages for coauthors. In the Research section, each coauthor's name
+# links to the address given here. Spell the name exactly as in
+# data/papers.yaml. A coauthor without an entry is shown without a link.
+
+- name: "Feyaad Allie"
+  url: "https://www.feyaadallie.com/"
+
+- name: "Viktor Enssle"
+  url: "https://www.politics.ox.ac.uk/person/viktor-enssle"
+
+- name: "Tanushree Goyal"
+  url: "https://tanushreegoyal.com/"
+
+- name: "Saad Gulzar"
+  url: "https://saadgulzar.com/"
+
+- name: "Fernando Hoces de la Guardia"
+  url: "https://fhoces.github.io/"
+
+- name: "Edward Miguel"
+  url: "https://emiguel.econ.berkeley.edu/"
+
+- name: "Akash Shaji"
+  url: "https://cega.berkeley.edu/person/akash-shaji/"
+
+- name: "Viviane Silva da Rocha"
+  url: "https://cega.berkeley.edu/person/viviane-helena-silva-da-rocha/"
+
+- name: "Erik Sørensen"
+  url: "https://www.nhh.no/en/employees/faculty/erik-oiolf-sorensen/"
+
+- name: "Bertil Tungodden"
+  url: "https://www.nhh.no/en/employees/faculty/bertil-tungodden/"
+
+- name: "Iván Higuera-Mendieta"
+  url: "https://ivanhigueram.com/"
+
+- name: "Marshall Burke"
+  url: "https://web.stanford.edu/~mburke/"

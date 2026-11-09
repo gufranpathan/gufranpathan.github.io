@@ -1,0 +1,23 @@
+{{- /* One paper in a list. The title links to the PDF if there is one, otherwise to the link field. */ -}}
+{{- $url := "" }}
+{{- with .pdf }}{{ $url = . | relURL }}{{ else }}{{ with .link }}{{ $url = . }}{{ end }}{{ end }}
+<li class="entry paper">
+  <p class="paper__title">
+    {{- if $url }}<a href="{{ $url }}" target="_blank" rel="noopener">{{ .title }}</a>{{ else }}<span>{{ .title }}</span>{{ end }}
+    {{- /* The no-break space keeps the badge on the same line as the title's last word. */}}
+    {{- with .status }}{{ if ne (lower .) "published" }}&nbsp;<span class="badge">{{ partial "status-label.html" . }}</span>{{ end }}{{ end -}}
+  </p>
+  {{- $meta := slice }}
+  {{- with partial "coauthors.html" .authors }}{{ $meta = $meta | append . }}{{ end }}
+  {{- with .venue }}{{ $meta = $meta | append (printf "<em>%s</em>" (. | htmlEscape)) }}{{ end }}
+  {{- with .year }}{{ $meta = $meta | append (string .) }}{{ end }}
+  {{- with $meta }}
+  <p class="entry__meta">{{ delimit . " · " | safeHTML }}</p>
+  {{- end }}
+  {{- with .abstract }}
+  <details class="abstract">
+    <summary>Abstract</summary>
+    <p>{{ . }}</p>
+  </details>
+  {{- end }}
+</li>

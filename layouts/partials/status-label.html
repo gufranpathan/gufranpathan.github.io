@@ -1,0 +1,10 @@
+{{- /* Returns the short label shown in a paper's status badge. */ -}}
+{{- $labels := dict
+  "published" "Published"
+  "accepted" "Accepted"
+  "revise and resubmit" "R&R"
+  "under review" "Under review"
+  "working paper" "Working paper"
+  "work in progress" "Work in progress"
+-}}
+{{- return (index $labels (lower .) | default .) -}}

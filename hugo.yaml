@@ -1,0 +1,63 @@
+# Site configuration for https://gufranpathan.github.io/
+# Most things you may want to change are under "params" below.
+# See UPDATING.md for step-by-step instructions.
+
+baseURL: "https://gufranpathan.github.io/"
+title: "Gufran Pathan"
+locale: en-US
+
+# The site has no tag pages and no RSS feed.
+disableKinds: ["rss", "taxonomy", "term"]
+
+params:
+  author: "Gufran Pathan"
+  description: "Gufran Pathan is a PhD student in the Department of Government at Harvard University, studying ethnic conflict, ethnic voting and ethnic appeals in South Asia."
+  email: "gufranpathan@fas.harvard.edu"
+  role: "PhD Student"
+  department: "Department of Government"
+  institution: "Harvard University"
+  location: "Cambridge, MA"
+  tagline: "I study ethnic conflict, ethnic voting and ethnic appeals in South Asia."
+  photo: "images/photo.jpg"
+  photoAlt: "Portrait of Gufran Pathan"
+  cv: "files/cv.pdf"
+  interests: ["Ethnic Politics", "Ethnic Conflict", "Media Campaigns", "Intergroup Relations"]
+
+  # Links shown under the photo and in the Contact section (none at the moment).
+  # To add one, see "Add a link under your photo" in UPDATING.md.
+  social: []
+
+  mysite:
+    # Footer line "Created using GaryKing.org/mysite". Off: the intake form had no "Footer credit" box checked.
+    credit: false
+    # Invisible generator tag and schema.org Person block. Off: the intake form had no "Invisible marker" box checked.
+    discovery: false
+    # Where the current look came from. The design quest was skipped because
+    # the intake form named two reference sites to use as the visual model.
+    design:
+      seed: ""
+      priming: ""
+      concept: "Modeled on tarahein.com (white page, sticky top bar with the name on the left, left profile column with a portrait photo and icon links, system sans-serif type, blue links) and bouchat.github.io (short Welcome, Research and Contact sections with plain lists)."
+      references:
+        - "https://tarahein.com/"
+        - "https://bouchat.github.io/"
+
+menus:
+  main:
+    - name: "Research"
+      url: "/#research"
+      weight: 10
+    - name: "Teaching"
+      url: "/#teaching"
+      weight: 20
+    - name: "CV"
+      url: "/files/cv.pdf"
+      weight: 30
+    - name: "Contact"
+      url: "/#contact"
+      weight: 40
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true

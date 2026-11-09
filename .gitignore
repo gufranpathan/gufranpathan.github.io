@@ -1,0 +1,7 @@
+# Source material for building the site (kept on this computer only)
+new_build_assets/
+
+# Hugo build output and caches
+/public/
+/resources/_gen/
+.hugo_build.lock

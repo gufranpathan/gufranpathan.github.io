@@ -1,0 +1,21 @@
+# Teaching shown on the homepage, in this order (newest first).
+# role and instructor are optional; leave them as "" to hide them.
+# Example role: "Graduate Student Instructor" or "Teaching Fellow".
+
+- course: "LS 22: Misinformation & Disinformation"
+  role: "Teaching Fellow"
+  institution: "UC Berkeley"
+  term: "Spring 2023"
+  instructor: "Prof. Saul Perlmutter"
+
+- course: "ECON C171: Development Economics"
+  role: "Teaching Fellow"
+  institution: "UC Berkeley"
+  term: "Spring 2022"
+  instructor: "Prof. Ben Faber"
+
+- course: "EDUC 244: Data Mining and Analytics"
+  role: "Teaching Fellow"
+  institution: "UC Berkeley"
+  term: "Fall 2021"
+  instructor: "Prof. Zachary A. Pardos"

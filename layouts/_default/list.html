@@ -1,0 +1,24 @@
+{{ define "main" }}
+<main id="main" class="page" tabindex="-1">
+  <h1 class="page__title">{{ .Title }}</h1>
+  {{- with .Content }}
+  <div class="prose">{{ . }}</div>
+  {{- end }}
+  <ul class="entries">
+    {{- range .Pages.ByDate.Reverse }}
+    <li class="entry">
+      <div class="entry__head">
+        <p class="entry__title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></p>
+        {{- if not .Date.IsZero }}
+        <p class="entry__date"><time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2, 2006" }}</time></p>
+        {{- end }}
+      </div>
+      {{- with .Description }}
+      <p class="entry__meta">{{ . }}</p>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ul>
+  <p class="back-link"><a href="{{ "/" | relURL }}">&larr; Back to the homepage</a></p>
+</main>
+{{ end }}

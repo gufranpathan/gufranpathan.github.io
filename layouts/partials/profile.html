@@ -1,0 +1,26 @@
+<header class="profile">
+  {{- with site.Params.photo }}
+  <img class="profile__photo" src="{{ . | relURL }}" alt="{{ site.Params.photoAlt }}" width="400" height="500" fetchpriority="high">
+  {{- end }}
+  <div class="profile__text">
+    <h1 class="profile__name">{{ site.Params.author }}</h1>
+    <p class="profile__role">{{ site.Params.role }}<br>{{ site.Params.department }}</p>
+    {{- with site.Params.tagline }}
+    <p class="profile__tagline">{{ . }}</p>
+    {{- end }}
+    <ul class="link-list profile__links">
+      {{- with site.Params.institution }}
+      <li class="profile__institution">{{ partial "icon.html" "institution" }}<span>{{ . }}</span></li>
+      {{- end }}
+      {{- with site.Params.email }}
+      <li>{{ partial "icon.html" "email" }}<a href="mailto:{{ . }}">Email</a></li>
+      {{- end }}
+      {{- range site.Params.social }}
+      <li>{{ partial "icon.html" .icon }}<a href="{{ .url }}" target="_blank" rel="noopener">{{ .name }}</a></li>
+      {{- end }}
+    </ul>
+    {{- with site.Params.cv }}
+    <a class="button" href="{{ . | relURL }}" target="_blank" rel="noopener">{{ partial "icon.html" "cv" }}<span>CV (PDF)</span></a>
+    {{- end }}
+  </div>
+</header>
