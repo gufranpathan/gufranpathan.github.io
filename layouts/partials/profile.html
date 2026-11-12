@@ -3,7 +3,12 @@
   <img class="profile__photo" src="{{ . | relURL }}" alt="{{ site.Params.photoAlt }}" width="400" height="500" fetchpriority="high">
   {{- end }}
   <div class="profile__text">
+    {{- /* The name is the page's main heading only on the homepage. Other pages have their own. */}}
+    {{- if .IsHome }}
     <h1 class="profile__name">{{ site.Params.author }}</h1>
+    {{- else }}
+    <p class="profile__name">{{ site.Params.author }}</p>
+    {{- end }}
     <p class="profile__role">{{ site.Params.role }}<br>{{ site.Params.department }}</p>
     {{- with site.Params.tagline }}
     <p class="profile__tagline">{{ . }}</p>

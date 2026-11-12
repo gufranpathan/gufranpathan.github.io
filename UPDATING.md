@@ -2,7 +2,7 @@
 
 You can make every change below on GitHub, in your web browser. Open the file in the repository, click the pencil icon to edit it, and then click "Commit changes". GitHub rebuilds the site after each commit to the `master` branch, and the change appears at https://gufranpathan.com/ about two minutes later. The "Actions" tab of the repository shows each rebuild and whether it succeeded.
 
-The `.yaml` files in the `data` folder hold the lists on the homepage. They depend on indentation. To add an entry, copy an existing entry, paste it, and edit the text between the quotes. Keep the same number of spaces at the start of each line.
+The `.yaml` files in the `data` folder hold the lists on the site (papers on the Research page, teaching on the Teaching page). They depend on indentation. To add an entry, copy an existing entry, paste it, and edit the text between the quotes. Keep the same number of spaces at the start of each line.
 
 ## Add a new paper
 
@@ -47,7 +47,7 @@ Change its `status` to `"published"`, put the journal name in `venue` and the ye
 
 ## Add your job market paper
 
-Set `job_market_paper: true` on that paper, and give it an `abstract` and a `pdf`. The site shows it first in the Research section, in a shaded box with the full abstract and a link to the PDF.
+Set `job_market_paper: true` on that paper, and give it an `abstract` and a `pdf`. The site shows it first on the Research page, in a shaded box with the full abstract and a link to the PDF.
 
 ## Update your bio
 
@@ -147,7 +147,7 @@ Create the file `data/projects.yaml` and add entries:
   language: "R"
 ```
 
-A "Projects" section then appears on the homepage, below Research. To give it another heading, such as "Software", add the line `projectsHeading: "Software"` under `params` in `hugo.yaml`.
+A "Projects" section then appears on the Research page, below the papers. To give it another heading, such as "Software", add the line `projectsHeading: "Software"` under `params` in `hugo.yaml`.
 
 ## Old coding samples
 

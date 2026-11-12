@@ -1,0 +1,29 @@
+{{ define "main" }}
+<main id="main" class="layout" tabindex="-1">
+  {{ partial "profile.html" . }}
+
+  <div class="content">
+    <section id="teaching" class="section" aria-labelledby="teaching-heading">
+      <h1 id="teaching-heading">{{ .Title }}</h1>
+      <ul class="entries">
+        {{- range hugo.Data.teaching }}
+        <li class="entry">
+          <div class="entry__head">
+            <p class="entry__title">{{ .course }}</p>
+            {{- with .term }}<p class="entry__date">{{ . }}</p>{{ end }}
+          </div>
+          {{- $meta := slice }}
+          {{- with .role }}{{ $meta = $meta | append . }}{{ end }}
+          {{- with .institution }}{{ $meta = $meta | append . }}{{ end }}
+          {{- with .instructor }}{{ $meta = $meta | append (printf "with %s" .) }}{{ end }}
+          {{- with $meta }}
+          <p class="entry__meta">{{ delimit . ", " }}</p>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+
+  </div>
+</main>
+{{ end }}

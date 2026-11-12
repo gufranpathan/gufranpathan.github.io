@@ -7,7 +7,7 @@
     </button>
     <ul class="site-menu" id="site-menu">
       {{- range site.Menus.main }}
-      <li><a href="{{ .URL | relURL }}"{{ if strings.HasSuffix .URL ".pdf" }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a></li>
+      <li><a href="{{ .URL | relURL }}"{{ if eq (.URL | relURL) $.RelPermalink }} aria-current="page"{{ end }}{{ if strings.HasSuffix .URL ".pdf" }} target="_blank" rel="noopener"{{ end }}>{{ .Name }}</a></li>
       {{- end }}
     </ul>
   </nav>

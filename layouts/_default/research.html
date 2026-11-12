@@ -1,0 +1,61 @@
+{{ define "main" }}
+<main id="main" class="layout" tabindex="-1">
+  {{ partial "profile.html" . }}
+
+  <div class="content">
+    {{- /* Research: job market paper first, then working papers, then publications. */}}
+    {{- $papers := slice }}
+    {{- with hugo.Data.papers }}{{ $papers = . }}{{ end }}
+    <section id="research" class="section" aria-labelledby="research-heading">
+      <h1 id="research-heading">{{ .Title }}</h1>
+      {{- with site.Params.interests }}
+      <p class="interests"><span class="interests__label">Interests:</span> {{ delimit . ", " }}</p>
+      {{- end }}
+      {{- range where $papers "job_market_paper" true }}
+      {{ partial "jmp.html" . }}
+      {{- end }}
+      {{- $others := where $papers "job_market_paper" "!=" true }}
+      {{- $published := where $others "status" "in" (slice "published" "accepted") }}
+      {{- $working := where $others "status" "not in" (slice "published" "accepted") }}
+      {{- with $working }}
+      <h3>Working Papers</h3>
+      <ul class="entries">
+        {{- range . }}
+        {{ partial "paper.html" . }}
+        {{- end }}
+      </ul>
+      {{- end }}
+      {{- with $published }}
+      <h3>Publications</h3>
+      <ul class="entries">
+        {{- range . }}
+        {{ partial "paper.html" . }}
+        {{- end }}
+      </ul>
+      {{- end }}
+    </section>
+
+    {{- /* Software or other projects. Appears only if data/projects.yaml exists. */}}
+    {{- with hugo.Data.projects }}
+    {{- $heading := site.Params.projectsHeading | default "Projects" }}
+    <section id="{{ anchorize $heading }}" class="section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">{{ $heading }}</h2>
+      <ul class="entries">
+        {{- range . }}
+        <li class="entry">
+          <p class="entry__title">
+            {{- if .url }}<a href="{{ .url | relURL }}" target="_blank" rel="noopener">{{ .name }}</a>{{ else }}{{ .name }}{{ end }}
+            {{- with .language }}&nbsp;<span class="badge">{{ . }}</span>{{ end -}}
+          </p>
+          {{- with .description }}
+          <p class="entry__meta">{{ . }}</p>
+          {{- end }}
+        </li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+
+  </div>
+</main>
+{{ end }}

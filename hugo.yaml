@@ -37,7 +37,7 @@ params:
     design:
       seed: ""
       priming: ""
-      concept: "Modeled on tarahein.com (white page, sticky top bar with the name on the left, left profile column with a portrait photo and icon links, system sans-serif type, blue links) and bouchat.github.io (short Welcome, Research and Contact sections with plain lists)."
+      concept: "Modeled on tarahein.com (white page, sticky top bar with the name on the left, left profile column with a portrait photo and icon links, system sans-serif type, blue links) and bouchat.github.io (short Welcome, Research and Contact sections with plain lists). Research and Teaching have their own pages, as on tarahein.com."
       references:
         - "https://tarahein.com/"
         - "https://bouchat.github.io/"
@@ -45,10 +45,10 @@ params:
 menus:
   main:
     - name: "Research"
-      url: "/#research"
+      url: "/research/"
       weight: 10
     - name: "Teaching"
-      url: "/#teaching"
+      url: "/teaching/"
       weight: 20
     - name: "CV"
       url: "/files/cv.pdf"

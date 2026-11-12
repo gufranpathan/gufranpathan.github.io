@@ -178,7 +178,8 @@ main:focus {
   font-weight: 500;
 }
 
-.site-menu a:hover {
+.site-menu a:hover,
+.site-menu a[aria-current="page"] {
   color: var(--color-text);
 }
 
@@ -330,6 +331,7 @@ main:focus {
   margin-top: 4rem;
 }
 
+.section h1,
 .section h2 {
   margin: 0 0 1.25rem;
   color: var(--color-text);
