@@ -4,8 +4,8 @@
 
 Research interests: ethnic politics, ethnic conflict, media campaigns, intergroup relations.
 
-- [Homepage](https://gufranpathan.github.io/): bio, working papers and teaching
-- [CV (PDF)](https://gufranpathan.github.io/files/cv.pdf)
-- [Research](https://gufranpathan.github.io/#research): working papers
-- [Teaching](https://gufranpathan.github.io/#teaching)
-- [Contact](https://gufranpathan.github.io/#contact): gufranpathan@fas.harvard.edu
+- [Homepage](https://gufranpathan.com/): bio, working papers and teaching
+- [CV (PDF)](https://gufranpathan.com/files/cv.pdf)
+- [Research](https://gufranpathan.com/#research): working papers
+- [Teaching](https://gufranpathan.com/#teaching)
+- [Contact](https://gufranpathan.com/#contact): gufranpathan@fas.harvard.edu

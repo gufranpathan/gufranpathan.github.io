@@ -1,6 +1,6 @@
 # gufranpathan.github.io
 
-Source for Gufran Pathan's academic website, https://gufranpathan.github.io/.
+Source for Gufran Pathan's academic website, https://gufranpathan.com/.
 
 The site is built with [Hugo](https://gohugo.io/). GitHub Actions builds and publishes it each time a change is pushed to the `master` branch (see `.github/workflows/deploy.yml`).
 

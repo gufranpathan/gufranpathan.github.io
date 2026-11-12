@@ -1,8 +1,8 @@
-# Site configuration for https://gufranpathan.github.io/
+# Site configuration for https://gufranpathan.com/
 # Most things you may want to change are under "params" below.
 # See UPDATING.md for step-by-step instructions.
 
-baseURL: "https://gufranpathan.github.io/"
+baseURL: "https://gufranpathan.com/"
 title: "Gufran Pathan"
 locale: en-US
 

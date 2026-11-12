@@ -1,6 +1,6 @@
 # How to update the website
 
-You can make every change below on GitHub, in your web browser. Open the file in the repository, click the pencil icon to edit it, and then click "Commit changes". GitHub rebuilds the site after each commit to the `master` branch, and the change appears at https://gufranpathan.github.io/ about two minutes later. The "Actions" tab of the repository shows each rebuild and whether it succeeded.
+You can make every change below on GitHub, in your web browser. Open the file in the repository, click the pencil icon to edit it, and then click "Commit changes". GitHub rebuilds the site after each commit to the `master` branch, and the change appears at https://gufranpathan.com/ about two minutes later. The "Actions" tab of the repository shows each rebuild and whether it succeeded.
 
 The `.yaml` files in the `data` folder hold the lists on the homepage. They depend on indentation. To add an entry, copy an existing entry, paste it, and edit the text between the quotes. Keep the same number of spaces at the start of each line.
 
@@ -151,7 +151,7 @@ A "Projects" section then appears on the homepage, below Research. To give it an
 
 ## Old coding samples
 
-The three coding samples from the old site are still in `static/coding_samples`. They still work at their old addresses, such as https://gufranpathan.github.io/coding_samples/rdd_elite_colleges.html, but the homepage does not link to them. To take them off the web, delete that folder.
+The three coding samples from the old site are still in `static/coding_samples`. They still work at their old addresses, such as https://gufranpathan.com/coding_samples/rdd_elite_colleges.html, but the homepage does not link to them. To take them off the web, delete that folder.
 
 ## Change the look of the site
 
