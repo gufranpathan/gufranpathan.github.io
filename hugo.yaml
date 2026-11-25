@@ -31,7 +31,7 @@ params:
     # Footer line "Created using GaryKing.org/mysite". Off: the intake form had no "Footer credit" box checked.
     credit: false
     # Invisible generator tag and schema.org Person block. Off: the intake form had no "Invisible marker" box checked.
-    discovery: false
+    discovery: true
     # Where the current look came from. The design quest was skipped because
     # the intake form named two reference sites to use as the visual model.
     design:
