@@ -26,8 +26,16 @@ params:
 
   # Links shown under the photo and in the Contact section (none at the moment).
   # To add one, see "Add a link under your photo" in UPDATING.md.
-  social: []
+  social:
+    - name: "Google Scholar"
+      url: "https://scholar.google.com/citations?user=eNM_afsAAAAJ"
+      icon: "link"
 
+    - name: "LinkedIn"
+      url: "https://www.linkedin.com/in/gufranpathan"
+      icon: "link"
+    
+      
   mysite:
     # Footer line "Created using GaryKing.org/mysite". Off: the intake form had no "Footer credit" box checked.
     credit: false
