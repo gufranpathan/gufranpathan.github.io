@@ -5,6 +5,7 @@
 baseURL: "https://gufranpathan.com/"
 title: "Gufran Pathan"
 locale: en-US
+enableRobotsTXT: true
 
 # The site has no tag pages and no RSS feed.
 disableKinds: ["rss", "taxonomy", "term"]
